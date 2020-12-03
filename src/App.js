@@ -5,17 +5,28 @@ import CavitiesPage from './pages/Cavities';
 import AppointmentsPage from './pages/Appointments';
 import WhiteningPage from './pages/Whitening';
 import './App.css';
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <TopMenu />
-      <HomePage />
-      <CavitiesPage />
-      <AppointmentsPage />
-      <WhiteningPage />
-    </>
-  );
+    return (
+        <Router>
+            <TopMenu/>
+            <Switch>
+                <Route exact path={"/"}>
+                    <HomePage/>
+                </Route>
+                <Route path={"/gaatjes"}>
+                    <CavitiesPage/>
+                </Route>
+                <Route path={"afspraak-maken"}>
+                    <AppointmentsPage/>
+                </Route>
+                <Route path={"tanden-bleken"}>
+                    <WhiteningPage/>
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
